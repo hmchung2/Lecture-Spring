@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd ">
+	<bean class="di.xml01.Car" id="car" />
+	<bean class="di.xml01.HankookTire" id="tire" />
+	
+	<bean class="di.xml01.HankookTire" id="hankook" />
+	<bean class="di.xml01.KumhoTire" id="kumho" />
+	
+	<!-- car 인스턴스 객체 만들면서 setter로 의존주입되도록 관계를 설정하고 싶음 -->
+	<bean class="di.xml01.Car" id="car2">
+		<!-- property가 setter를 의미함, ref는 주입대상의 id -->
+		<property name="tire" ref="hankook" />	
+	</bean>
+</beans>
